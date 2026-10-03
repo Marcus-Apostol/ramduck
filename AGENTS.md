@@ -1,6 +1,6 @@
 # AGENTS.md
 
-RAMduck teaser landing page — a single-page marketing site for a stealth startup building something on the <span class="redacted">blockchain</span> (never call it an AI) that will end the RAM crisis — hence "RAM" in the name. The brand intent is **tease, don't reveal**: keep copy vague, playful and duck-themed; never invent concrete product details (chain names, mechanisms, dates).
+RAMduck teaser landing page — a single-page marketing site for a stealth startup building something on the blockchain (never call it an AI) that will end the RAM crisis — hence "RAM" in the name. The brand intent is **tease, don't reveal**: keep copy vague, playful and duck-themed; never invent concrete product details (chain names, mechanisms, dates).
 
 ## Stack
 
