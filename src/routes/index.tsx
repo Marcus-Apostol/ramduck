@@ -64,8 +64,8 @@ function Home() {
             <a href="#file" className="hidden sm:inline text-cream/70 hover:text-lime">
               The file
             </a>
-            <a href="#games" className="hidden sm:inline text-cream/70 hover:text-lime">
-              Games
+            <a href="#projects" className="hidden sm:inline text-cream/70 hover:text-lime">
+              Projects
             </a>
             <a
               href="#flock"
@@ -199,17 +199,17 @@ function Home() {
         </div>
       </section>
 
-      {/* Games */}
-      <section id="games" className="relative bg-pond-950 py-24 sm:py-32">
+      {/* Projects */}
+      <section id="projects" className="relative bg-pond-950 py-24 sm:py-32">
         <div className="pixel-grid absolute inset-0 opacity-40" aria-hidden />
         <div className="relative mx-auto max-w-6xl px-5">
-          <p className="font-mono text-sm uppercase tracking-[0.25em] text-beak">// Games</p>
+          <p className="font-mono text-sm uppercase tracking-[0.25em] text-beak">// Projects</p>
           <h2 className="mt-4 max-w-2xl font-pixel text-4xl sm:text-6xl leading-none">
-            New games are <span className="text-lime">coming soon</span>
+            New projects are <span className="text-lime">coming soon</span>
             <span className="text-beak">.</span>
           </h2>
           <p className="mt-6 max-w-lg text-lg text-cream/80">
-            This is where we’ll announce our video games. Nothing here yet, the eggs are still
+            This is where we’ll announce our new projects. Nothing here yet, the eggs are still
             warm. Check back soon.
           </p>
           <div className="mt-14 grid gap-6 sm:grid-cols-3">
