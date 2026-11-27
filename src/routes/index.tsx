@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { BootLog } from '@/components/BootLog'
 import { ClassifiedFile } from '@/components/ClassifiedFile'
 import { WaitlistForm } from '@/components/WaitlistForm'
+import { APPS } from '@/data/flock'
 
 export const Route = createFileRoute('/')({
   component: Home,
@@ -27,6 +28,25 @@ const HINTS = [
     title: 'It belongs to no one.',
     body: 'No gatekeepers, no middlemen, no permission slips. Just the flock.',
     hidden: 'Who runs it? Nobody. Everybody. Mostly ducks.',
+  },
+]
+
+const SPOILERS = [
+  {
+    tag: 'Track A',
+    title: 'The RAM fix.',
+    body: 'Our first egg. Something on the blockchain that takes on the memory shortage, so nobody runs out of RAM again.',
+    teaser: 'How it works',
+    hidden: 'still under the duck',
+    accent: 'text-lime',
+  },
+  {
+    tag: 'Track B',
+    title: 'Everything after.',
+    body: 'RAM is just the start. We’re building the future of technology: a whole pond of apps, software and other stuff we can’t name yet.',
+    teaser: 'What’s next',
+    hidden: 'apps, tools and more ducks',
+    accent: 'text-beak',
   },
 ]
 
@@ -60,6 +80,9 @@ function Home() {
           <nav className="flex items-center gap-6 font-mono text-sm">
             <a href="#hints" className="hidden sm:inline text-cream/70 hover:text-lime">
               What we can say
+            </a>
+            <a href="#spoilers" className="hidden sm:inline text-cream/70 hover:text-lime">
+              Spoilers
             </a>
             <a href="#file" className="hidden sm:inline text-cream/70 hover:text-lime">
               The file
@@ -171,6 +194,41 @@ function Home() {
         </div>
       </section>
 
+      {/* Spoilers */}
+      <section id="spoilers" className="relative bg-pond-950 py-24 sm:py-32">
+        <div className="pixel-grid absolute inset-0 opacity-30" aria-hidden />
+        <div className="relative mx-auto max-w-6xl px-5">
+          <p className="font-mono text-sm uppercase tracking-[0.25em] text-beak">
+            // Spoiler alert
+          </p>
+          <h2 className="mt-4 max-w-3xl font-pixel text-4xl sm:text-6xl leading-none">
+            Two eggs. <span className="text-lime">One nest</span>
+            <span className="text-beak">.</span>
+          </h2>
+          <p className="mt-6 max-w-xl text-lg text-cream/80">
+            Fine, here’s a small spoiler. There’s the thing that ends the RAM crisis, and there’s
+            everything that comes after it.
+          </p>
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {SPOILERS.map((s) => (
+              <article
+                key={s.tag}
+                className="border-2 border-cream/70 bg-pond-900 p-8 pixel-shadow transition hover:-translate-y-1 hover:border-lime"
+              >
+                <span className={`font-mono text-sm uppercase tracking-widest ${s.accent}`}>
+                  {s.tag}
+                </span>
+                <h3 className="mt-4 font-pixel text-4xl">{s.title}</h3>
+                <p className="mt-3 text-cream/75">{s.body}</p>
+                <p className="mt-6 border-t border-dashed border-cream/20 pt-4 font-mono text-xs text-cream/50">
+                  {s.teaser}: <span className="redacted">{s.hidden}</span>
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Flock banner */}
       <section aria-label="The flock" className="relative h-[340px] sm:h-[420px] overflow-hidden border-y-2 border-pond-950">
         <div className="duck-flock absolute inset-0" aria-hidden />
@@ -213,13 +271,28 @@ function Home() {
             warm. Check back soon.
           </p>
           <div className="mt-14 grid gap-6 sm:grid-cols-3">
-            {['01', '02', '03'].map((slot) => (
+            {APPS.map((app) => (
+              <a
+                key={app.name}
+                href={app.href}
+                className="flex aspect-[4/3] flex-col justify-between border-2 border-cream/70 bg-pond-900 p-6 pixel-shadow transition hover:-translate-y-1 hover:border-lime"
+              >
+                <span className="font-mono text-xs uppercase tracking-widest text-beak">
+                  {app.status}
+                </span>
+                <div>
+                  <p className="font-pixel text-3xl">{app.name}</p>
+                  <p className="mt-2 text-sm text-cream/70">{app.blurb}</p>
+                </div>
+              </a>
+            ))}
+            {Array.from({ length: Math.max(0, 3 - APPS.length) }, (_, i) => (
               <div
-                key={slot}
+                key={i}
                 className="flex aspect-[4/3] flex-col items-center justify-center border-2 border-dashed border-cream/30 bg-pond-900/60 p-6 text-center"
               >
                 <span className="font-mono text-xs uppercase tracking-widest text-cream/40">
-                  Slot {slot}
+                  Slot {String(APPS.length + i + 1).padStart(2, '0')}
                 </span>
                 <p className="mt-3 font-pixel text-3xl text-cream/80">Coming soon</p>
                 <p className="mt-2 font-mono text-xs text-cream/40">

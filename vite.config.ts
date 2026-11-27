@@ -12,7 +12,12 @@ const config = defineConfig({
     }),
     tailwindcss(),
     netlify(),
-    tanstackStart(),
+    // Prerender every page to static HTML at build time so visits are served
+    // straight from the CDN instead of invoking the SSR function (saves credits).
+    tanstackStart({
+      prerender: { enabled: true, crawlLinks: true, autoStaticPathsDiscovery: true },
+      pages: [{ path: '/' }, { path: '/hidden' }],
+    }),
     viteReact(),
   ],
 })
