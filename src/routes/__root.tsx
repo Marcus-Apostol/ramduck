@@ -1,6 +1,7 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 
 
+import { SiteLayout } from '@/components/SiteLayout'
 import '../styles.css'
 
 const siteName = 'RAMduck — Something is hatching'
@@ -61,6 +62,7 @@ export const Route = createRootRoute({
     ],
   }),
   shellComponent: RootDocument,
+  component: SiteLayout,
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {

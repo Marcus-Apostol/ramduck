@@ -9,6 +9,8 @@ export const getRouter = () => {
     routeTree,
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
+    // Load the next page's code on hover so navigation feels instant
+    defaultPreload: 'intent',
   })
 
   return router

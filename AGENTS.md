@@ -15,7 +15,9 @@ public/
   img/ramduck-banner.jpg# Duck pattern banner, user-supplied
 src/
   routes/__root.tsx     # HTML shell, SEO meta, Google Fonts, favicon
-  routes/index.tsx      # The whole landing page (nav, hero, ticker, hints, banner, file, waitlist, footer)
+  routes/index.tsx      # The whole landing page (nav, hero, ticker, hints, spoilers, banner, file, projects, waitlist, footer)
+  routes/hidden.tsx     # Unlisted /hidden page (noindex, no password): new apps + updates feed
+  data/flock.ts         # APPS and UPDATES arrays — single source for Projects section and /hidden
   components/BootLog.tsx        # Animated terminal "boot" sequence in the hero
   components/ClassifiedFile.tsx # Redacted document with a "Declassify" button that always refuses
   components/WaitlistForm.tsx   # Netlify Forms waitlist (email + optional guess)
@@ -29,3 +31,4 @@ src/
 - The waitlist form POSTs URL-encoded data to `/__forms.html` (not `/`, which the SSR function would intercept). If you add fields, add them to `public/__forms.html` too.
 - `.redacted` spans render as solid bars; use them for teaser copy.
 - All animations respect `prefers-reduced-motion`.
+- Pages are prerendered to static HTML (see `vite.config.ts`) to avoid SSR function invocations. New routes must be added to `pages` there if they are not linked from another page.
