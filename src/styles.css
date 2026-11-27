@@ -126,8 +126,40 @@ body {
   animation: ticker 30s linear infinite;
 }
 
+/* Page change: fade + gentle lift */
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(12px); filter: blur(4px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+.page-enter {
+  animation: page-enter 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Scroll reveal (see components/Reveal.tsx) */
+.reveal {
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .bob, .duck-flock, .caret, .rise, .ticker {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .bob, .duck-flock, .caret, .rise, .ticker, .page-enter {
     animation: none;
+  }
+
+  .reveal, .reveal-hidden {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

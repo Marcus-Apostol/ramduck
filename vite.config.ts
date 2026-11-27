@@ -16,7 +16,7 @@ const config = defineConfig({
     // straight from the CDN instead of invoking the SSR function (saves credits).
     tanstackStart({
       prerender: { enabled: true, crawlLinks: true, autoStaticPathsDiscovery: true },
-      pages: [{ path: '/' }, { path: '/hidden' }],
+      pages: ['/', '/hints', '/spoilers', '/file', '/projects', '/flock'].map((path) => ({ path })),
     }),
     viteReact(),
   ],
